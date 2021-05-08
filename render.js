@@ -35,11 +35,11 @@ export const renderBoard = function(game) {
 
     for (let i = 0; i < 16; i++) {
         if (game.gameBoard[i] === 2) {
-            cellOutput[i] = '<img id="bone" src="./images/bone.png" width="100" alt="bone"></img>';
+            cellOutput[i] = '<img id="bone" src="./bone.png" width="100" alt="bone"></img>';
         }
 
         if (game.gameBoard[i] === 3) {
-            cellOutput[i] = '<img id="dirt" src="./images/hole.png" width="100" alt="hole-dirt"></img>';
+            cellOutput[i] = '<img id="dirt" src="./hole.png" width="100" alt="hole-dirt"></img>';
         }
     }
     
@@ -47,7 +47,7 @@ export const renderBoard = function(game) {
     return (
         `<div class ="wholeGame"> 
         
-        <div class = "title"> <img src="images/title2.png" width="500" alt="Find the Bone!"> </div>
+        <div class = "title"> <img src="./title2.png" width="500" alt="Find the Bone!"> </div>
         <div class = "story"> <p> <b>Backstory: </b> One day, you suddenly wake up as a dog. How/why? That's not important (and also idk). The first thing you want to do as a dog is find the bone that's buried somewhere in the backyard. However, if you dig too many holes, your owner will get mad :( </p>
         <div class = "instructions"> <p> <b> How to Play: </b>Click the plot of land you want to dig. You can only dig 3 holes. Good luck! </p>
         <div class = "notes"> <p> <b> P.S.: </b>To replay as the same dog, click the Play Again button. To steal another dog's identity, click the other button. </p>
