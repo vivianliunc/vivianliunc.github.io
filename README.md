@@ -9,3 +9,10 @@ Have fun! :dog:
 Game, Random Joke API, Dog API
 
 ( + music :notes:)
+
+## Game Logic Overview
+Array filled with 0's, change one value to 1. After clicking, 0 changes to 3 and 1 changes to 2.
+0 = undiscovered dirt
+1 = undiscovered bone
+2 = discovered bone (you win!)
+3 = discovered dirt
