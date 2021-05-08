@@ -117,7 +117,7 @@ export const renderGame = function() {
     getDog().then(function(result) {
         let theDog = result;
         console.log(theDog);
-        let dog = `<figure><img src="${theDog}" width="275" alt="doggo"><figcaption> This is you btw. </figcaption></figure>`
+        let dog = `<figure><img id="dogPic" src="${theDog}" width="275" alt="doggo"><figcaption> This is you btw. </figcaption></figure>`
         $(".title").append(dog);
         return (
             dog
