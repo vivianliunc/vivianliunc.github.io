@@ -30,15 +30,27 @@ export const renderBoard = function(game) {
     if (game.overFlag) {
         over = "Yes :(";
     }
+
+    let cellOutput = new Array(16).fill(" ");
+
+    for (let i = 0; i < 16; i++) {
+        if (game.gameBoard[i] === 2) {
+            cellOutput[i] = '<img id="bone" src="./images/bone.png" width="100" alt="bone"></img>';
+        }
+
+        if (game.gameBoard[i] === 3) {
+            cellOutput[i] = '<img id="dirt" src="./images/hole.png" width="100" alt="hole-dirt"></img>';
+        }
+    }
+    
     
     return (
         `<div class ="wholeGame"> 
         
-        <div class = "title"> <img src="title2.png" width="500" alt="Find the Bone!"> </div>
+        <div class = "title"> <img src="images/title2.png" width="500" alt="Find the Bone!"> </div>
         <div class = "story"> <p> <b>Backstory: </b> One day, you suddenly wake up as a dog. How/why? That's not important (and also idk). The first thing you want to do as a dog is find the bone that's buried somewhere in the backyard. However, if you dig too many holes, your owner will get mad :( </p>
         <div class = "instructions"> <p> <b> How to Play: </b>Click the plot of land you want to dig. You can only dig 3 holes. Good luck! </p>
         <div class = "notes"> <p> <b> P.S.: </b>To replay as the same dog, click the Play Again button. To steal another dog's identity, click the other button. </p>
-        <div class = "notes"> <p> <b> P.P.S.: </b>To make things a little more difficult, you can't see where you've already dug lol. Checking Digs Left gives you a clue as to whether you've already dug that plot of land or not. </p>
 
         <div class="gameStateInfo">
         <table><tbody>
@@ -53,22 +65,22 @@ export const renderBoard = function(game) {
 
 
         <div class="grid-container">
-        <div class="grid-item"><button id="0" class="cell" type="button" data-index="0"></button></div>
-        <div class="grid-item"><button id="1" class="cell" type="button" data-index="1"></button></div>
-        <div class="grid-item"><button id="2" class="cell" type="button" data-index="2"></button></div>
-        <div class="grid-item"><button id="3" class="cell" type="button" data-index="3"></button></div>
-        <div class="grid-item"><button id="4" class="cell" type="button" data-index="4"></button></div>
-        <div class="grid-item"><button id="5" class="cell" type="button" data-index="5"></button></div>
-        <div class="grid-item"><button id="6" class="cell" type="button" data-index="6"></button></div>
-        <div class="grid-item"><button id="7" class="cell" type="button" data-index="7"></button></div>
-        <div class="grid-item"><button id="8" class="cell" type="button" data-index="8"></button></div>
-        <div class="grid-item"><button id="9" class="cell" type="button" data-index="9"></button></div>
-        <div class="grid-item"><button id="10" class="cell" type="button" data-index="10"></button></div>
-        <div class="grid-item"><button id="11" class="cell" type="button" data-index="11"></button></div>
-        <div class="grid-item"><button id="12" class="cell" type="button" data-index="12"></button></div>
-        <div class="grid-item"><button id="13" class="cell" type="button" data-index="13"></button></div>
-        <div class="grid-item"><button id="14" class="cell" type="button" data-index="14"></button></div>
-        <div class="grid-item"><button id="15" class="cell" type="button" data-index="15"></button></div>
+        <div class="grid-item"><button id="0" class="cell" type="button" data-index="0">${cellOutput[0]}</button></div>
+        <div class="grid-item"><button id="1" class="cell" type="button" data-index="1">${cellOutput[1]}</button></div>
+        <div class="grid-item"><button id="2" class="cell" type="button" data-index="2">${cellOutput[2]}</button></div>
+        <div class="grid-item"><button id="3" class="cell" type="button" data-index="3">${cellOutput[3]}</button></div>
+        <div class="grid-item"><button id="4" class="cell" type="button" data-index="4">${cellOutput[4]}</button></div>
+        <div class="grid-item"><button id="5" class="cell" type="button" data-index="5">${cellOutput[5]}</button></div>
+        <div class="grid-item"><button id="6" class="cell" type="button" data-index="6">${cellOutput[6]}</button></div>
+        <div class="grid-item"><button id="7" class="cell" type="button" data-index="7">${cellOutput[7]}</button></div>
+        <div class="grid-item"><button id="8" class="cell" type="button" data-index="8">${cellOutput[8]}</button></div>
+        <div class="grid-item"><button id="9" class="cell" type="button" data-index="9">${cellOutput[9]}</button></div>
+        <div class="grid-item"><button id="10" class="cell" type="button" data-index="10">${cellOutput[10]}</button></div>
+        <div class="grid-item"><button id="11" class="cell" type="button" data-index="11">${cellOutput[11]}</button></div>
+        <div class="grid-item"><button id="12" class="cell" type="button" data-index="12">${cellOutput[12]}</button></div>
+        <div class="grid-item"><button id="13" class="cell" type="button" data-index="13">${cellOutput[13]}</button></div>
+        <div class="grid-item"><button id="14" class="cell" type="button" data-index="14">${cellOutput[14]}</button></div>
+        <div class="grid-item"><button id="15" class="cell" type="button" data-index="15">${cellOutput[15]}</button></div>
 
         </div>
         
@@ -116,7 +128,6 @@ export const renderGame = function() {
 
     getDog().then(function(result) {
         let theDog = result;
-        console.log(theDog);
         let dog = `<figure><img id="dogPic" src="${theDog}" width="275" alt="doggo"><figcaption> This is you btw. </figcaption></figure>`
         $(".title").append(dog);
         return (
@@ -126,7 +137,6 @@ export const renderGame = function() {
 
         getJoke().then(function(result) {
             let theJoke = result;
-            console.log(theJoke);
             let joke = `<div class = "joke"> <p> Here's a free joke! No need to win the game to get this treat b/c you're such a good doggo.</p> <p> ${theJoke} </p> </div>`
             $root.append(joke);
             return (
