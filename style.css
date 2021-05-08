@@ -1,6 +1,6 @@
 body{
     background-color:#d2edfa;
-    background-image: url("images/background.png");
+    background-image: url("background.png");
 }
 
 .title {
@@ -62,7 +62,7 @@ td {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-gap: 5px 5px; 
-    background-image: url("images/grass.png");
+    background-image: url("grass.png");
 
     padding-top: 20px;
     margin-left: auto;
