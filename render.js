@@ -1,4 +1,4 @@
-import Game from "./engine/game.js";
+import Game from "game.js";
 let game = new Game(4);
 
 
@@ -34,7 +34,7 @@ export const renderBoard = function(game) {
     return (
         `<div class ="wholeGame"> 
         
-        <div class = "title"> <img src="images/title2.png" width="500" alt="Find the Bone!"> </div>
+        <div class = "title"> <img src="title2.png" width="500" alt="Find the Bone!"> </div>
         <div class = "story"> <p> <b>Backstory: </b> One day, you suddenly wake up as a dog. How/why? That's not important (and also idk). The first thing you want to do as a dog is find the bone that's buried somewhere in the backyard. However, if you dig too many holes, your owner will get mad :( </p>
         <div class = "instructions"> <p> <b> How to Play: </b>Click the plot of land you want to dig. You can only dig 3 holes. Good luck! </p>
         <div class = "notes"> <p> <b> P.S.: </b>To replay as the same dog, click the Play Again button. To steal another dog's identity, click the other button. </p>
